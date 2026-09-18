@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpellBee Learning — Books for Hong Kong kids</title>
+<meta name="description" content="SpellBee Learning publishes The Watson Watch (a Hong Kong mystery series for ages 9–12), the My First Cantonese Words coloring books, and the 默書皇 SpellBee app.">
+<link rel="icon" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SpellBee Learning — The Watson Watch, Book 1 out now">
+<meta property="og:description" content="A Hong Kong mystery for ages 9–12. Sherlock Holmes, a noodle stall in Sai Ying Pun, and a jade dragon that walked out of a locked shop. Read chapters 1–3 free.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     ⚙️ 唯一需要改嘅地方 — 所有 link 集中喺呢度。
+     空字串 = 個掣自動變「即將推出」。
+     ============================================================ -->
+<script>
+const CONFIG = {
+  AMAZON_PAPERBACK: "https://www.amazon.com/dp/B0HK33S8SW",
+  AMAZON_KINDLE:    "https://www.amazon.com/dp/B0HJZ7BD48",
+  GOOGLE_PLAY:      "",                                   // ← Play Books Partner Center 攞條 link 貼呢度
+  APPLE_BOOKS:      "https://books.apple.com/us/book/id6812719541",   // 香港/新加坡/台灣買唔到，網頁會自動註明
+  SAMPLER_PDF:      "sampler-the-watson-watch-ch1-3.pdf",
+  NOTIFY_FORM:      "",                                   // ← Google Form link（Book 2 通知 / 抽獎名單）；空 = 用 email
+  EMAIL:            "ncairay@gmail.com",
+  COLORING: { book1: "", book2: "", book3: "" },          // ← 填色簿上架後貼 Amazon link
+  APP_PAGE:         "https://ncairay.github.io/spellbee/",
+  SOCIAL: { instagram: "", facebook: "", threads: "", x: "", youtube: "https://www.youtube.com/@ncaism" }  // ← 開咗帳戶就填
+};
+</script>
+
+<style>
+  :root{
+    --ink:#2B2B2B; --paper:#FDF8EC; --gold:#F5B800; --gold-deep:#E6A600; --honey:#F3AF4E;
+    --muted:#6F675B; --card:#FFFFFF; --jade:#1F6F5F; --jade-deep:#174F44; --red:#E4572E; --line:#EADFC8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Noto Sans TC",-apple-system,BlinkMacSystemFont,"PingFang HK",sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.brand,.btn,.chip{font-family:"Baloo 2","Noto Sans TC",sans-serif}
+  a{color:var(--jade)}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  body[data-lang="zh"] .en{display:none} body[data-lang="en"] .zh{display:none}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(253,248,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
+  .brand img{width:36px;height:36px;border-radius:9px}
+  nav ul{display:flex;gap:18px;list-style:none;font-size:15px;font-weight:500}
+  nav ul a{color:var(--ink);text-decoration:none}
+  .lang{border:2px solid var(--ink);background:transparent;border-radius:999px;padding:4px 12px;font-weight:700;cursor:pointer;font-family:inherit;font-size:14px}
+  @media(max-width:760px){nav ul{display:none}}
+
+  /* hero */
+  .hero{background:linear-gradient(180deg,var(--honey) 0%,var(--gold) 100%);padding:56px 0 64px}
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:48px;align-items:center}
+  .hero .cover{width:340px;border-radius:6px;box-shadow:0 24px 50px rgba(0,0,0,.28);transform:rotate(-2deg)}
+  .kicker{font-weight:700;letter-spacing:.12em;font-size:13px;text-transform:uppercase;color:var(--ink);opacity:.8}
+  h1{font-size:52px;line-height:1.05;font-weight:800;margin:8px 0 6px}
+  .hero h2{font-size:26px;font-weight:700;color:var(--red);margin-bottom:18px}
+  .hook{font-size:18px;max-width:560px}
+  .hook b{font-weight:700}
+  .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;border:2px solid var(--ink);background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:16px;line-height:1.2}
+  .btn small{display:block;font-weight:500;font-size:12px;opacity:.8;font-family:"Noto Sans TC",sans-serif}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.soon{background:#F0EDE6;color:var(--muted);border-color:#DDD7CC;cursor:default}
+  .btn.jade{background:var(--jade);border-color:var(--jade)}
+  .fine{font-size:13px;color:var(--ink);opacity:.75;margin-top:10px}
+  @media(max-width:760px){.hero .wrap{grid-template-columns:1fr;text-align:center}.hero .cover{margin:0 auto;width:260px}h1{font-size:40px}.btns{justify-content:center}.hook{margin:0 auto}}
+
+  section{padding:64px 0}
+  section h2.t{font-size:34px;font-weight:800;margin-bottom:6px}
+  .sub{color:var(--muted);font-size:17px;margin-bottom:28px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:760px){.grid3{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+  .card h3{font-size:20px;font-weight:700;margin-bottom:6px}
+  .card p{font-size:15px;color:var(--muted)}
+  .art{border-radius:12px;border:1px solid var(--line)}
+
+  /* series band */
+  .band{background:var(--jade);color:#fff}
+  .band .wrap{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:40px;align-items:center}
+  .band h2.t{color:#fff}
+  .band .sub{color:#d7ebe5}
+  .band img{background:#fff;border-radius:14px;padding:10px}
+  .band a{color:#fff}
+  @media(max-width:760px){.band .wrap{grid-template-columns:1fr}}
+
+  /* coloring */
+  .books{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .books img{border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.15)}
+  .books .card{padding:16px}
+  @media(max-width:760px){.books{grid-template-columns:1fr 1fr}}
+
+  /* notify */
+  .notify{background:#fff;border:3px solid var(--gold);border-radius:22px;padding:34px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+  @media(max-width:760px){.notify{grid-template-columns:1fr}}
+
+  footer{border-top:1px solid var(--line);padding:36px 0;font-size:14px;color:var(--muted)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+  footer a{color:var(--muted);margin-right:14px}
+</style>
+</head>
+<body data-lang="zh">
+
+<nav><div class="wrap">
+  <a class="brand" href="#"><img src="assets/bee.png" alt="">SpellBee Learning</a>
+  <ul>
+    <li><a href="#watson"><span class="en">The Watson Watch</span><span class="zh">The Watson Watch</span></a></li>
+    <li><a href="#sample"><span class="en">Free chapters</span><span class="zh">免費試閱</span></a></li>
+    <li><a href="#coloring"><span class="en">Cantonese books</span><span class="zh">粵語填色簿</span></a></li>
+    <li><a href="#schools"><span class="en">Schools</span><span class="zh">學校 / 圖書館</span></a></li>
+    <li><a href="#about"><span class="en">About</span><span class="zh">關於</span></a></li>
+  </ul>
+  <button class="lang" id="langBtn" type="button">EN</button>
+</div></nav>
+
+<header class="hero" id="watson"><div class="wrap">
+  <div>
+    <div class="kicker"><span class="en">New · Book One of twelve</span><span class="zh">新書 · 全系列十二集 · 第一集</span></div>
+    <h1>The Watson Watch</h1>
+    <h2>The Case of the Jade Dragon</h2>
+    <p class="hook en"><b>A shop that robbed itself. A camera that saw everything and knew nothing. A detective who has been bored for a hundred and thirty-one years.</b><br>Sam Wong-Watson is eleven, lives above her family's noodle stall in Sai Ying Pun, and writes down things that don't add up. On the night of the typhoon she finds a silver pocket watch in an old trunk and steps out of her storeroom into London, 1895. A Hong Kong mystery for readers 9–12.</p>
+    <p class="hook zh"><b>一間自己打劫自己嘅舖頭。四部乜都影到、乜都唔知嘅閉路電視。一個悶咗一百三十一年嘅偵探。</b><br>阿 Sam 十一歲，住喺西營盤家人嘅大牌檔樓上，有本簿專記「唔合理嘅事」。打風嗰晚，佢喺舊皮篋搵到一隻銀懷錶，一踏出雜物房，已經係 1895 年嘅倫敦。英文原創，特別為香港 9–12 歲小朋友寫得清清楚楚。</p>
+    <div class="btns" id="storeBtns"></div>
+    <p class="fine" id="storeNote"></p>
+  </div>
+  <img class="cover" src="assets/watson-cover.jpg" alt="The Watson Watch: The Case of the Jade Dragon — cover">
+</div></header>
+
+<section id="sample"><div class="wrap">
+  <h2 class="t"><span class="en">Read the first three chapters free</span><span class="zh">免費試閱頭三章</span></h2>
+  <p class="sub"><span class="en">A typhoon, a forbidden storeroom, and seventeen steps in the fog. No sign-up, just a PDF.</span><span class="zh">打風、唔准入嘅雜物房、大霧入面嘅十七級樓梯。唔使登記，直接落 PDF。</span></p>
+  <div class="btns" style="margin-top:0">
+    <a class="btn jade" id="samplerBtn" href="#"><span class="en">Download the sampler (PDF)</span><span class="zh">下載試閱本（PDF）</span></a>
+  </div>
+  <div class="grid3" style="margin-top:36px">
+    <div class="card"><img class="art" src="assets/art-ch01.jpg" alt=""><h3><span class="en">Sai Ying Pun, typhoon day</span><span class="zh">西營盤 · 打風日</span></h3><p><span class="en">Every Hong Kong place in the book is real. Holmes asks; a local kid answers. No footnotes.</span><span class="zh">書入面每個香港地方都係真。福爾摩斯問，本地小朋友答，冇註腳。</span></p></div>
+    <div class="card"><img class="art" src="assets/art-ch17.jpg" alt=""><h3><span class="en">A machine that steals</span><span class="zh">會偷嘢嘅機器</span></h3><p><span class="en">Four cameras, one delivery robot, a jade dragon gone at 3:14 a.m. The crime was checked by a retired-detective-style read before we called it finished.</span><span class="zh">四部閉路電視、一部送貨機械人、凌晨 3:14 消失嘅玉龍。成件案經過「退休 CID」式審讀先算完成。</span></p></div>
+    <div class="card"><img class="art" src="assets/art-ch10.jpg" alt=""><h3><span class="en">Sam closes every case</span><span class="zh">每一單案都係 Sam 破</span></h3><p><span class="en">Holmes explains. Sam notices. Sixteen black-and-white illustrations and a "What Was Real" section at the back.</span><span class="zh">福爾摩斯負責解釋，Sam 負責留意。十六幅黑白插畫，書尾「What Was Real」講返邊樣係真。</span></p></div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div>
+    <h2 class="t"><span class="en">Twelve hollows. One filled.</span><span class="zh">錶蓋十二格，而家填咗一格。</span></h2>
+    <p class="sub"><span class="en">The watch only opens onto cases nobody ever solved, and it will not take Sam home until one is closed. Each book etches one symbol inside the silver lid. Readers fill the lid with her.</span><span class="zh">隻錶只會開去從來冇人破過嘅案，未破案就唔會帶 Sam 返屋企。每一集喺銀錶蓋刻一個記號，讀者同 Sam 一齊填滿佢。</span></p>
+    <p><span class="en"><b>Book Two:</b> the Valley of the Kings, 1923.</span><span class="zh"><b>第二集：</b>1923 年帝王谷。</span> <a href="#notify"><span class="en">Get told when it's out →</span><span class="zh">出街通知我 →</span></a></p>
+  </div>
+  <img src="assets/era-map.png" alt="Where the watch has been — the series map">
+</div></section>
+
+<section id="coloring"><div class="wrap">
+  <h2 class="t"><span class="en">My First Cantonese Words</span><span class="zh">My First Cantonese Words 粵語填色字簿</span></h2>
+  <p class="sub"><span class="en">Color, trace and say it — 50 words a book, Traditional Chinese tracing grids and Jyutping, for ages 4–8. Printed single-sided so crayons never bleed through.</span><span class="zh">填色、描字、講出嚟。每本 50 個詞，繁體字田字格加粵拼，4–8 歲。單面印刷，蠟筆唔會印穿。</span></p>
+  <div class="books" id="coloringBooks">
+    <div class="card"><img src="assets/cb1-50-words.jpg" alt="My First 50 Cantonese Words"><h3 style="margin-top:12px">Book 1 · <span class="en">50 Everyday Words</span><span class="zh">50 個日常詞</span></h3><p class="cbtn" data-key="book1"></p></div>
+    <div class="card"><img src="assets/cb2-numbers.jpg" alt="Numbers, Colors & Shapes in Cantonese"><h3 style="margin-top:12px">Book 2 · <span class="en">Numbers, Colors &amp; Shapes</span><span class="zh">數字、顏色、形狀</span></h3><p class="cbtn" data-key="book2"></p></div>
+    <div class="card"><img src="assets/cb3-things-that-go.jpg" alt="Things That Go"><h3 style="margin-top:12px">Book 3 · <span class="en">Things That Go</span><span class="zh">車、船、飛機</span></h3><p class="cbtn" data-key="book3"></p></div>
+  </div>
+  <p class="fine" style="margin-top:18px"><span class="en">Every book links to our free spelling app, </span><span class="zh">每本書都連住我哋嘅免費默書 app </span><a id="appLink" href="#">默書皇 SpellBee</a>.</p>
+</div></section>
+
+<section id="notify"><div class="wrap">
+  <div class="notify">
+    <div>
+      <h2 class="t" style="font-size:28px"><span class="en">Book Two is coming. Want a heads-up?</span><span class="zh">第二集嚟緊，想第一時間知？</span></h2>
+      <p class="sub" style="margin-bottom:0"><span class="en">One email when the next case opens, plus the occasional free chapter. Nothing else.</span><span class="zh">下一單案開檔時一封 email，間中送免費章節。冇其他嘢。</span></p>
+    </div>
+    <a class="btn" id="notifyBtn" href="#"><span class="en">Tell me when Book 2 is out</span><span class="zh">Book 2 出街通知我</span></a>
+  </div>
+</div></section>
+
+<section id="schools"><div class="wrap">
+  <h2 class="t"><span class="en">For schools and libraries</span><span class="zh">學校同圖書館</span></h2>
+  <p class="sub"><span class="en">Written in clear English for readers whose first language isn't English, without being simplified. Comparable in level to City Spies and Enola Holmes. 135 pages, 26 short chapters, a "What Was Real" section for the kid who asks "did that actually happen?"</span><span class="zh">為母語唔係英文嘅小朋友寫得清晰，但唔係簡化版。程度接近 City Spies 同 Enola Holmes。135 頁、26 章短章，書尾「What Was Real」答返「呢樣嘢係咪真㗎？」。</span></p>
+  <div class="btns" style="margin-top:0">
+    <a class="btn ghost" id="reviewCopyBtn" href="#"><span class="en">Request a review copy</span><span class="zh">索取評閱本</span></a>
+    <a class="btn ghost" id="samplerBtn2" href="#"><span class="en">Chapters 1–3 (PDF)</span><span class="zh">頭三章 PDF</span></a>
+  </div>
+  <p class="fine">ISBN 979-8174764033 · <span class="en">Hong Kong schools: paperback review copies available on request.</span><span class="zh">香港學校可索取平裝評閱本。</span></p>
+</div></section>
+
+<section id="about" style="padding-top:0"><div class="wrap">
+  <h2 class="t"><span class="en">About SpellBee Learning</span><span class="zh">關於 SpellBee Learning</span></h2>
+  <p class="sub" style="margin-bottom:0"><span class="en">A small Hong Kong imprint run by NCAISM. We make English novels, Cantonese learning books and the 默書皇 SpellBee app for Hong Kong kids — books that get out of the way of the story. The Watson Watch began as a bedtime question from a Primary 5 reader: what would Sherlock Holmes make of an Octopus card?</span><span class="zh">NCAISM 旗下嘅香港小型出版社。我哋為香港小朋友做英文小說、粵語學習書同默書皇 SpellBee app，信念係「英文清晰，故事先行」。The Watson Watch 嘅起點係一個小五讀者臨瞓前嘅問題：福爾摩斯會點睇八達通？</span></p>
+</div></section>
+
+<footer><div class="wrap">
+  <div>© 2026 SpellBee Learning · NCAISM · Hong Kong · <a id="mailLink" href="#">ncairay@gmail.com</a></div>
+  <div id="socialLinks"></div>
+</div></footer>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s);
+  // language: zh for Chinese browsers, else en; remembered per visitor
+  let lang='zh'; try{ lang=localStorage.getItem('sbl-lang') || (/^zh/i.test(navigator.language)?'zh':'en'); }catch(e){}
+  const setLang=l=>{ lang=l; document.body.dataset.lang=l; document.documentElement.lang=(l==='zh'?'zh-HK':'en'); $('#langBtn').textContent=(l==='zh'?'EN':'中'); try{localStorage.setItem('sbl-lang',l)}catch(e){} };
+  setLang(lang); $('#langBtn').onclick=()=>setLang(lang==='zh'?'en':'zh');
+  const hk=/HK|Hong Kong|zh-HK|zh-TW|SG/i.test(navigator.language+' '+(Intl.DateTimeFormat().resolvedOptions().timeZone||''));
+
+  // store buttons
+  const btn=(href,en,zh,sub,cls='')=>`<a class="btn ${href?cls:'soon'}" ${href?`href="${href}" target="_blank" rel="noopener"`:''}><span><span class="en">${en}</span><span class="zh">${zh}</span>${sub?`<small>${sub}</small>`:''}</span></a>`;
+  $('#storeBtns').innerHTML=[
+    btn(CONFIG.AMAZON_PAPERBACK,'Paperback on Amazon','Amazon 平裝','US$9.99 · 135 pp'),
+    btn(CONFIG.AMAZON_KINDLE,'Kindle','Kindle 電子書','US$4.99','ghost'),
+    btn(CONFIG.GOOGLE_PLAY,'Google Play Books','Google Play 電子書','HK$38','ghost'),
+    (hk? '' : btn(CONFIG.APPLE_BOOKS,'Apple Books','Apple Books','','ghost'))
+  ].join('');
+  $('#storeNote').innerHTML = hk
+    ? '<span class="en">In Hong Kong the ebook is on Kindle and Google Play (Apple Books does not sell paid books in HK).</span><span class="zh">香港電子書請用 Kindle 或 Google Play（Apple Books 香港區冇得買）。</span>'
+    : '<span class="en">Also on Apple Books outside Hong Kong, Singapore and Taiwan.</span><span class="zh">香港、新加坡、台灣以外亦有 Apple Books 版。</span>';
+  if(!CONFIG.GOOGLE_PLAY) $('#storeNote').innerHTML += '<br><span class="en">Google Play link coming shortly.</span><span class="zh">Google Play link 稍後補上。</span>';
+
+  $('#samplerBtn').href=CONFIG.SAMPLER_PDF; $('#samplerBtn2').href=CONFIG.SAMPLER_PDF;
+  $('#appLink').href=CONFIG.APP_PAGE; $('#mailLink').href='mailto:'+CONFIG.EMAIL; $('#mailLink').textContent=CONFIG.EMAIL;
+  $('#notifyBtn').href = CONFIG.NOTIFY_FORM || ('mailto:'+CONFIG.EMAIL+'?subject='+encodeURIComponent('Tell me when The Watson Watch Book 2 is out'));
+  if(CONFIG.NOTIFY_FORM){ $('#notifyBtn').target='_blank'; }
+  $('#reviewCopyBtn').href='mailto:'+CONFIG.EMAIL+'?subject='+encodeURIComponent('Review copy request — The Watson Watch')+'&body='+encodeURIComponent('School / library:\nName:\nAddress for a paperback:\n');
+
+  document.querySelectorAll('.cbtn').forEach(p=>{
+    const h=CONFIG.COLORING[p.dataset.key];
+    p.innerHTML = h ? `<a href="${h}" target="_blank" rel="noopener">Amazon →</a>` : '<span class="en">Coming soon on Amazon</span><span class="zh">即將喺 Amazon 上架</span>';
+  });
+  const names={instagram:'Instagram',facebook:'Facebook',threads:'Threads',x:'X',youtube:'YouTube'};
+  $('#socialLinks').innerHTML=Object.entries(CONFIG.SOCIAL).filter(([k,v])=>v).map(([k,v])=>`<a href="${v}" target="_blank" rel="noopener">${names[k]}</a>`).join('');
+})();
+</script>
+</body>
+</html>
