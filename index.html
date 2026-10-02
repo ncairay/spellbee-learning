@@ -36,7 +36,7 @@ const CONFIG = {
   EXAMPAPER_ANDROID:"",                                              // ← Play 上架後填
   SPELLBEE_IOS:     "https://apps.apple.com/hk/app/id6760842186",   // 默書皇 App Store
   SPELLBEE_ANDROID: "",
-  SOCIAL: { instagram: "", facebook: "", threads: "", x: "", youtube: "" }  // ← 開咗帳戶就填
+  SOCIAL: { instagram: "https://www.instagram.com/ncairay/", facebook: "", threads: "", x: "", youtube: "" }  // ← 開咗帳戶就填
 };
 </script>
 
@@ -109,6 +109,12 @@ const CONFIG = {
   .approw .card img{width:64px;height:64px;border-radius:15px;flex:none}
   @media(max-width:760px){.flag{grid-template-columns:1fr}.approw{grid-template-columns:1fr}.shots img{width:120px}}
 
+  .packs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .packs .card{padding:18px;text-align:center}
+  .packs .card h3{font-size:22px;margin-bottom:10px}
+  .packs .card a{display:block;margin-top:8px;font-weight:700;color:var(--jade)}
+  @media(max-width:760px){.packs{grid-template-columns:1fr 1fr}}
+
   /* series band */
   .band{background:var(--jade);color:#fff}
   .band .wrap{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:40px;align-items:center}
@@ -139,6 +145,7 @@ const CONFIG = {
   <a class="brand" href="#"><img src="assets/bee.png" alt="">SpellBee Learning</a>
   <ul>
     <li><a href="#apps"><span class="en">出卷皇 · Apps</span><span class="zh">出卷皇 · Apps</span></a></li>
+    <li><a href="#packs"><span class="en">Free papers</span><span class="zh">免費操卷包</span></a></li>
     <li><a href="#watson"><span class="en">The Watson Watch</span><span class="zh">The Watson Watch</span></a></li>
     <li><a href="#sample"><span class="en">Free chapters</span><span class="zh">免費試閱</span></a></li>
     <li><a href="#coloring"><span class="en">Cantonese books</span><span class="zh">粵語填色簿</span></a></li>
@@ -186,6 +193,18 @@ const CONFIG = {
     <div class="card"><img src="assets/bee.png" alt=""><div><h3>默書皇 SpellBee</h3><p><span class="en">Weekly dictation practice: add the words, the app reads them aloud in Cantonese, Mandarin or English, the child writes, the app marks. Free, with a one-off Pro upgrade.</span><span class="zh">日日默書唔使愁：家長入詞語，App 用粵語／普通話／英文朗讀，小朋友聽住寫，自動批改。免費，Pro 版一次買斷。</span></p><div class="btns" style="margin-top:12px" id="spellbeeBtns"></div></div></div>
     <div class="card"><img src="assets/watson-cover.jpg" alt="" style="border-radius:6px;width:56px;height:auto"><div><h3>The Watson Watch</h3><p><span class="en">And when the paper is done: a Hong Kong mystery to read for fun. Book 1 out now, chapters 1–3 free below.</span><span class="zh">操完卷，就睇本為香港小朋友寫嘅英文偵探小說。第一集已出，頭三章免費試閱。</span></p><div class="btns" style="margin-top:12px"><a class="btn ghost" href="#watson"><span class="en">See the book</span><span class="zh">睇本書</span></a></div></div></div>
   </div>
+</div></section>
+
+<section id="packs"><div class="wrap">
+  <h2 class="t"><span class="en">Free practice papers</span><span class="zh">免費操卷包</span></h2>
+  <p class="sub"><span class="en">One maths paper each for Primary 3 to 6, with answer keys. No sign-up. Print and use. All made with 出卷皇.</span><span class="zh">小三至小六數學練習卷各一份，連答案卷。唔使登記，下載即印。全部用出卷皇出。</span></p>
+  <div class="packs">
+    <div class="card"><h3><span class="en">Primary 3</span><span class="zh">小三數學</span></h3><a href="packs/p3-maths-paper.pdf" download><span class="en">Question paper (PDF)</span><span class="zh">題目卷 PDF</span></a><a href="packs/p3-maths-answers.pdf" download><span class="en">Answer key (PDF)</span><span class="zh">答案卷 PDF</span></a></div>
+    <div class="card"><h3><span class="en">Primary 4</span><span class="zh">小四數學</span></h3><a href="packs/p4-maths-paper.pdf" download><span class="en">Question paper (PDF)</span><span class="zh">題目卷 PDF</span></a><a href="packs/p4-maths-answers.pdf" download><span class="en">Answer key (PDF)</span><span class="zh">答案卷 PDF</span></a></div>
+    <div class="card"><h3><span class="en">Primary 5</span><span class="zh">小五數學</span></h3><a href="packs/p5-maths-paper.pdf" download><span class="en">Question paper (PDF)</span><span class="zh">題目卷 PDF</span></a><a href="packs/p5-maths-answers.pdf" download><span class="en">Answer key (PDF)</span><span class="zh">答案卷 PDF</span></a></div>
+    <div class="card"><h3><span class="en">Primary 6</span><span class="zh">小六數學</span></h3><a href="packs/p6-maths-paper.pdf" download><span class="en">Question paper (PDF)</span><span class="zh">題目卷 PDF</span></a><a href="packs/p6-maths-answers.pdf" download><span class="en">Answer key (PDF)</span><span class="zh">答案卷 PDF</span></a></div>
+  </div>
+  <p class="fine" style="margin-top:18px"><span class="en">Want another subject or question type? Make your own in the app, 3 free papers a month.</span><span class="zh">想要其他科目或者題型？用 App 自己出，每月 3 份免費。</span></p>
 </div></section>
 
 <section id="sample"><div class="wrap">
