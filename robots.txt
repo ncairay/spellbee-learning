@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ncairay.github.io/spellbee-learning/sitemap.xml
