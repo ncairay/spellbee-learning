@@ -20,7 +20,8 @@
  {"@type":"Organization","@id":"https://ncairay.github.io/spellbee-learning/#org","name":"SpellBee Learning","url":"https://ncairay.github.io/spellbee-learning/","logo":"https://ncairay.github.io/spellbee-learning/assets/bee.png","sameAs":["https://www.instagram.com/ncairay/","https://www.facebook.com/spellbeelearning","https://www.amazon.com/stores/NCAISM/author/B0HLSNKDLN","https://www.goodreads.com/author/show/72395743.Ncaism"]},
  {"@type":"SoftwareApplication","name":"出卷皇 ExamPaper King","alternateName":"出卷皇","applicationCategory":"EducationalApplication","operatingSystem":"iOS","url":"https://apps.apple.com/hk/app/id6807743684","description":"小學練習卷生成器：揀年級（小三至小六）、科目（中文、英文、數學）同題型，一分鐘出一份練習卷連答案卷 PDF。每月 3 份免費。","offers":{"@type":"Offer","price":"0","priceCurrency":"HKD"},"publisher":{"@id":"https://ncairay.github.io/spellbee-learning/#org"}},
  {"@type":"SoftwareApplication","name":"默書皇 SpellBee","applicationCategory":"EducationalApplication","operatingSystem":"iOS","url":"https://apps.apple.com/hk/app/id6760842186","description":"粵語、普通話、英文三語默書練習 App：家長入詞語，App 朗讀，小朋友聽住寫。","offers":{"@type":"Offer","price":"0","priceCurrency":"HKD"},"publisher":{"@id":"https://ncairay.github.io/spellbee-learning/#org"}},
- {"@type":"Book","name":"The Watson Watch: The Case of the Jade Dragon","author":{"@type":"Person","name":"NCAISM"},"isbn":"9798174764033","bookFormat":"https://schema.org/Paperback","inLanguage":"en","numberOfPages":135,"image":"https://ncairay.github.io/spellbee-learning/assets/watson-cover.jpg","url":"https://www.amazon.com/dp/B0HK33S8SW","publisher":{"@id":"https://ncairay.github.io/spellbee-learning/#org"},"description":"A Hong Kong mystery for readers 9–12. Book One of The Watson Watch."}
+ {"@type":"Book","name":"The Watson Watch: The Case of the Jade Dragon","author":{"@type":"Person","name":"NCAISM"},"isbn":"9798174764033","bookFormat":"https://schema.org/Paperback","inLanguage":"en","numberOfPages":135,"image":"https://ncairay.github.io/spellbee-learning/assets/watson-cover.jpg","url":"https://www.amazon.com/dp/B0HK33S8SW","publisher":{"@id":"https://ncairay.github.io/spellbee-learning/#org"},"description":"A Hong Kong mystery for readers 9–12. Book One of The Watson Watch."},
+ {"@type":"Book","name":"The Watson Watch: The Case of the Pharaoh's Mask","author":{"@type":"Person","name":"NCAISM"},"bookFormat":"https://schema.org/EBook","inLanguage":"en","url":"https://www.amazon.com/dp/B0H1SQS688","publisher":{"@id":"https://ncairay.github.io/spellbee-learning/#org"},"datePublished":"2026-10-08","description":"A Sherlock Holmes locked-room mystery in Egypt, 1923, for readers 9–12. Book Two of The Watson Watch."}
 ]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +35,8 @@
 const CONFIG = {
   AMAZON_PAPERBACK: "https://www.amazon.com/dp/B0HK33S8SW",
   AMAZON_KINDLE:    "https://www.amazon.com/dp/B0HJZ7BD48",
+  BOOK2_KINDLE:     "https://www.amazon.com/dp/B0H1SQS688",   // Book 2 Kindle（KDP Select，Kindle Unlimited 可免費借）
+  BOOK2_PAPERBACK:  "",                                          // ← Book 2 平裝 live 後填 Amazon dp
   GOOGLE_PLAY:      "https://play.google.com/store/books/details?id=S7gNEgAAQBAJ",
   APPLE_BOOKS:      "https://books.apple.com/us/book/id6812719541",   // 香港/新加坡/台灣買唔到，網頁會自動註明
   SAMPLER_PDF:      "sampler-the-watson-watch-ch1-3.pdf",
@@ -131,6 +134,10 @@ const CONFIG = {
   .band .sub{color:#d7ebe5}
   .band img{background:#fff;border-radius:14px;padding:10px}
   .band a{color:#fff}
+  .band .btn{background:#fff;border-color:#fff;color:var(--jade)}
+  .band .btn.ghost{background:transparent;border-color:rgba(255,255,255,.6);color:#fff}
+  .band .btn.soon{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#d7ebe5}
+  .band .fine{color:#d7ebe5;opacity:1}
   @media(max-width:760px){.band .wrap{grid-template-columns:1fr}}
 
   /* coloring */
@@ -166,7 +173,7 @@ const CONFIG = {
 
 <header class="hero" id="watson"><div class="wrap">
   <div>
-    <div class="kicker"><span class="en">New · Book One of twelve</span><span class="zh">新書 · 全系列十二集 · 第一集</span></div>
+    <div class="kicker"><span class="en">Book One of twelve · Book Two out now</span><span class="zh">全系列十二集 · 第一集 · 第二集已出</span></div>
     <h1>The Watson Watch</h1>
     <h2>The Case of the Jade Dragon</h2>
     <p class="hook en"><b>A shop that robbed itself. A camera that saw everything and knew nothing. A detective who has been bored for a hundred and thirty-one years.</b><br>Sam Wong-Watson is eleven, lives above her family's noodle stall in Sai Ying Pun, and writes down things that don't add up. On the night of the typhoon she finds a silver pocket watch in an old trunk and steps out of her storeroom into London, 1895. A Hong Kong mystery for readers 9–12.</p>
@@ -200,7 +207,7 @@ const CONFIG = {
   </div>
   <div class="approw">
     <div class="card"><img src="assets/bee.png" alt=""><div><h3>默書皇 SpellBee</h3><p><span class="en">Weekly dictation practice: add the words, the app reads them aloud in Cantonese, Mandarin or English, the child writes, the app marks. Free, with a one-off Pro upgrade.</span><span class="zh">日日默書唔使愁：家長入詞語，App 用粵語／普通話／英文朗讀，小朋友聽住寫，自動批改。免費，Pro 版一次買斷。</span></p><div class="btns" style="margin-top:12px" id="spellbeeBtns"></div></div></div>
-    <div class="card"><img src="assets/watson-cover.jpg" alt="" style="border-radius:6px;width:56px;height:auto"><div><h3>The Watson Watch</h3><p><span class="en">And when the paper is done: a Hong Kong mystery to read for fun. Book 1 out now, chapters 1–3 free below.</span><span class="zh">操完卷，就睇本為香港小朋友寫嘅英文偵探小說。第一集已出，頭三章免費試閱。</span></p><div class="btns" style="margin-top:12px"><a class="btn ghost" href="#watson"><span class="en">See the book</span><span class="zh">睇本書</span></a></div></div></div>
+    <div class="card"><img src="assets/watson-cover.jpg" alt="" style="border-radius:6px;width:56px;height:auto"><div><h3>The Watson Watch</h3><p><span class="en">And when the paper is done: a Hong Kong mystery to read for fun. Books 1–2 out now, chapters 1–3 free below.</span><span class="zh">操完卷，就睇本為香港小朋友寫嘅英文偵探小說。第一集已出，頭三章免費試閱。</span></p><div class="btns" style="margin-top:12px"><a class="btn ghost" href="#watson"><span class="en">See the book</span><span class="zh">睇本書</span></a></div></div></div>
   </div>
 </div></section>
 
@@ -231,9 +238,11 @@ const CONFIG = {
 
 <section class="band"><div class="wrap">
   <div>
-    <h2 class="t"><span class="en">Twelve hollows. One filled.</span><span class="zh">錶蓋十二格，而家填咗一格。</span></h2>
+    <h2 class="t"><span class="en">Twelve hollows. Two filled.</span><span class="zh">錶蓋十二格，而家填咗兩格。</span></h2>
     <p class="sub"><span class="en">The watch only opens onto cases nobody ever solved, and it will not take Sam home until one is closed. Each book etches one symbol inside the silver lid. Readers fill the lid with her.</span><span class="zh">隻錶只會開去從來冇人破過嘅案，未破案就唔會帶 Sam 返屋企。每一集喺銀錶蓋刻一個記號，讀者同 Sam 一齊填滿佢。</span></p>
-    <p><span class="en"><b>Book Two:</b> the Valley of the Kings, 1923.</span><span class="zh"><b>第二集：</b>1923 年帝王谷。</span> <a href="#notify"><span class="en">Get told when it's out →</span><span class="zh">出街通知我 →</span></a></p>
+    <p><span class="en"><b>Book Two is out: The Case of the Pharaoh's Mask.</b> The Valley of the Kings, 1923. Seven padlocks, one steel door, and the gold mask is gone.</span><span class="zh"><b>第二集已出：The Case of the Pharaoh's Mask。</b>1923 年帝王谷，七把鎖、一道鐵閘，金面具不翼而飛。</span></p>
+    <div class="btns" id="book2Btns"></div>
+    <p class="fine"><span class="en">Book Two reads on its own, but the watch makes more sense after Book One.</span><span class="zh">第二集可以獨立睇，但睇完第一集先會明隻錶。</span></p>
   </div>
   <img src="assets/era-map.png" alt="Where the watch has been — the series map">
 </div></section>
@@ -252,10 +261,10 @@ const CONFIG = {
 <section id="notify"><div class="wrap">
   <div class="notify">
     <div>
-      <h2 class="t" style="font-size:28px"><span class="en">Want to know when Book Two is out?</span><span class="zh">想知第二集幾時出？</span></h2>
+      <h2 class="t" style="font-size:28px"><span class="en">Want to know when Book Three is out?</span><span class="zh">想知第三集幾時出？</span></h2>
       <p class="sub" style="margin-bottom:0"><span class="en">One email when the next case opens, plus the occasional free chapter. Nothing else.</span><span class="zh">下一單案開檔時一封 email，間中送免費章節。冇其他嘢。</span></p>
     </div>
-    <a class="btn" id="notifyBtn" href="#"><span class="en">Tell me when Book 2 is out</span><span class="zh">Book 2 出街通知我</span></a>
+    <a class="btn" id="notifyBtn" href="#"><span class="en">Tell me when Book 3 is out</span><span class="zh">Book 3 出街通知我</span></a>
   </div>
 </div></section>
 
@@ -305,7 +314,8 @@ const CONFIG = {
   $('#spellbeeBtns').innerHTML=[btn(CONFIG.SPELLBEE_IOS,'App Store','App Store 下載','','ghost'), btn(CONFIG.SPELLBEE_ANDROID,'Android','Android 版','製作中','ghost')].join('');
   $('#samplerBtn').href=CONFIG.SAMPLER_PDF; $('#samplerBtn2').href=CONFIG.SAMPLER_PDF;
   $('#appLink').href=CONFIG.APP_PAGE; $('#mailLink').href='mailto:'+CONFIG.EMAIL; $('#mailLink').textContent=CONFIG.EMAIL;
-  $('#notifyBtn').href = CONFIG.NOTIFY_FORM || ('mailto:'+CONFIG.EMAIL+'?subject='+encodeURIComponent('Tell me when The Watson Watch Book 2 is out'));
+  $('#book2Btns').innerHTML=[btn(CONFIG.BOOK2_KINDLE,'Book 2 on Kindle','第二集 Kindle','US$4.99 · free on Kindle Unlimited'), btn(CONFIG.BOOK2_PAPERBACK,'Book 2 paperback on Amazon','第二集 Amazon 平裝','US$9.99 · coming days','ghost')].join('');
+  $('#notifyBtn').href = CONFIG.NOTIFY_FORM || ('mailto:'+CONFIG.EMAIL+'?subject='+encodeURIComponent('Tell me when The Watson Watch Book 3 is out'));
   if(CONFIG.NOTIFY_FORM){ $('#notifyBtn').target='_blank'; }
   $('#reviewCopyBtn').href='mailto:'+CONFIG.EMAIL+'?subject='+encodeURIComponent('Review copy request — The Watson Watch')+'&body='+encodeURIComponent('School / library:\nName:\nAddress for a paperback:\n');
 
