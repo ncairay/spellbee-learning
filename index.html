@@ -21,7 +21,7 @@
  {"@type":"SoftwareApplication","name":"出卷皇 ExamPaper King","alternateName":"出卷皇","applicationCategory":"EducationalApplication","operatingSystem":"iOS","url":"https://apps.apple.com/hk/app/id6807743684","description":"小學練習卷生成器：揀年級（小三至小六）、科目（中文、英文、數學）同題型，一分鐘出一份練習卷連答案卷 PDF。每月 3 份免費。","offers":{"@type":"Offer","price":"0","priceCurrency":"HKD"},"publisher":{"@id":"https://ncairay.github.io/spellbee-learning/#org"}},
  {"@type":"SoftwareApplication","name":"默書皇 SpellBee","applicationCategory":"EducationalApplication","operatingSystem":"iOS","url":"https://apps.apple.com/hk/app/id6760842186","description":"粵語、普通話、英文三語默書練習 App：家長入詞語，App 朗讀，小朋友聽住寫。","offers":{"@type":"Offer","price":"0","priceCurrency":"HKD"},"publisher":{"@id":"https://ncairay.github.io/spellbee-learning/#org"}},
  {"@type":"Book","name":"The Watson Watch: The Case of the Jade Dragon","author":{"@type":"Person","name":"NCAISM"},"isbn":"9798174764033","bookFormat":"https://schema.org/Paperback","inLanguage":"en","numberOfPages":135,"image":"https://ncairay.github.io/spellbee-learning/assets/watson-cover.jpg","url":"https://www.amazon.com/dp/B0HK33S8SW","publisher":{"@id":"https://ncairay.github.io/spellbee-learning/#org"},"description":"A Hong Kong mystery for readers 9–12. Book One of The Watson Watch."},
- {"@type":"Book","name":"The Watson Watch: The Case of the Pharaoh's Mask","author":{"@type":"Person","name":"NCAISM"},"bookFormat":"https://schema.org/EBook","inLanguage":"en","url":"https://www.amazon.com/dp/B0H1SQS688","publisher":{"@id":"https://ncairay.github.io/spellbee-learning/#org"},"datePublished":"2026-10-08","description":"A Sherlock Holmes locked-room mystery in Egypt, 1923, for readers 9–12. Book Two of The Watson Watch."}
+ {"@type":"Book","name":"The Watson Watch: The Case of the Pharaoh's Mask","author":{"@type":"Person","name":"NCAISM"},"bookFormat":"https://schema.org/Paperback","inLanguage":"en","numberOfPages":152,"url":"https://www.amazon.com/dp/B0HMFY2Z1B","publisher":{"@id":"https://ncairay.github.io/spellbee-learning/#org"},"datePublished":"2026-10-08","description":"A Sherlock Holmes locked-room mystery in Egypt, 1923, for readers 9–12. Book Two of The Watson Watch."}
 ]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@ const CONFIG = {
   AMAZON_PAPERBACK: "https://www.amazon.com/dp/B0HK33S8SW",
   AMAZON_KINDLE:    "https://www.amazon.com/dp/B0HJZ7BD48",
   BOOK2_KINDLE:     "https://www.amazon.com/dp/B0H1SQS688",   // Book 2 Kindle（KDP Select，Kindle Unlimited 可免費借）
-  BOOK2_PAPERBACK:  "",                                          // ← Book 2 平裝 live 後填 Amazon dp
+  BOOK2_PAPERBACK:  "https://www.amazon.com/dp/B0HMFY2Z1B",   // Book 2 平裝（2026-10-09 live）
   GOOGLE_PLAY:      "https://play.google.com/store/books/details?id=S7gNEgAAQBAJ",
   APPLE_BOOKS:      "https://books.apple.com/us/book/id6812719541",   // 香港/新加坡/台灣買唔到，網頁會自動註明
   SAMPLER_PDF:      "sampler-the-watson-watch-ch1-3.pdf",
@@ -314,7 +314,7 @@ const CONFIG = {
   $('#spellbeeBtns').innerHTML=[btn(CONFIG.SPELLBEE_IOS,'App Store','App Store 下載','','ghost'), btn(CONFIG.SPELLBEE_ANDROID,'Android','Android 版','製作中','ghost')].join('');
   $('#samplerBtn').href=CONFIG.SAMPLER_PDF; $('#samplerBtn2').href=CONFIG.SAMPLER_PDF;
   $('#appLink').href=CONFIG.APP_PAGE; $('#mailLink').href='mailto:'+CONFIG.EMAIL; $('#mailLink').textContent=CONFIG.EMAIL;
-  $('#book2Btns').innerHTML=[btn(CONFIG.BOOK2_KINDLE,'Book 2 on Kindle','第二集 Kindle','US$4.99 · free on Kindle Unlimited'), btn(CONFIG.BOOK2_PAPERBACK,'Book 2 paperback on Amazon','第二集 Amazon 平裝','US$9.99 · coming days','ghost')].join('');
+  $('#book2Btns').innerHTML=[btn(CONFIG.BOOK2_PAPERBACK,'Book 2 paperback on Amazon','第二集 Amazon 平裝','US$9.99 · 152 pages'), btn(CONFIG.BOOK2_KINDLE,'Book 2 on Kindle','第二集 Kindle','US$4.99 · free on Kindle Unlimited','ghost')].join('');
   $('#notifyBtn').href = CONFIG.NOTIFY_FORM || ('mailto:'+CONFIG.EMAIL+'?subject='+encodeURIComponent('Tell me when The Watson Watch Book 3 is out'));
   if(CONFIG.NOTIFY_FORM){ $('#notifyBtn').target='_blank'; }
   $('#reviewCopyBtn').href='mailto:'+CONFIG.EMAIL+'?subject='+encodeURIComponent('Review copy request — The Watson Watch')+'&body='+encodeURIComponent('School / library:\nName:\nAddress for a paperback:\n');
