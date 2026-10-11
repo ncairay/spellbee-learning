@@ -116,6 +116,9 @@ const CONFIG = {
   .flag li::before{content:"✓";position:absolute;left:0;color:var(--jade);font-weight:800}
   .shots{display:flex;gap:12px;justify-content:center}
   .shots img{width:140px;border-radius:14px;box-shadow:0 12px 28px rgba(0,0,0,.18)}
+  .flag.sb{border-color:var(--jade)}
+  .flag.sb .pill{background:var(--jade);color:#fff}
+  .flag.sb .tag{color:var(--jade)}
   .pill{display:inline-block;background:var(--gold);color:var(--ink);font-weight:800;font-size:13px;letter-spacing:.08em;padding:4px 12px;border-radius:999px;font-family:"Baloo 2",sans-serif}
   .approw{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
   .approw .card{display:flex;gap:16px;align-items:flex-start}
@@ -206,9 +209,26 @@ const CONFIG = {
     </div>
     <div class="shots"><img src="assets/exampaper-shot1.jpg" alt=""><img src="assets/exampaper-shot2.jpg" alt=""></div>
   </div>
-  <div class="approw">
-    <div class="card"><img src="assets/bee.png" alt=""><div><h3>默書皇 SpellBee</h3><p><span class="en">Weekly dictation practice: add the words, the app reads them aloud in Cantonese, Mandarin or English, the child writes, the app marks. Free, with a one-off Pro upgrade.</span><span class="zh">日日默書唔使愁：家長入詞語，App 用粵語／普通話／英文朗讀，小朋友聽住寫，自動批改。免費，Pro 版一次買斷。</span></p><div class="btns" style="margin-top:12px" id="spellbeeBtns"></div></div></div>
-    <div class="card"><img src="assets/watson-cover.jpg" alt="" style="border-radius:6px;width:56px;height:auto"><div><h3>The Watson Watch</h3><p><span class="en">And when the paper is done: a Hong Kong mystery to read for fun. Books 1–2 out now, chapters 1–3 free below.</span><span class="zh">操完卷，就睇本為香港小朋友寫嘅英文偵探小說。第一集已出，頭三章免費試閱。</span></p><div class="btns" style="margin-top:12px"><a class="btn ghost" href="#watson"><span class="en">See the book</span><span class="zh">睇本書</span></a></div></div></div>
+  <div class="flag sb" style="margin-top:22px">
+    <div>
+      <span class="pill"><span class="en">DICTATION</span><span class="zh">默書必備</span></span>
+      <img class="icon" src="assets/bee.png" alt="默書皇" style="margin-top:14px">
+      <h3>默書皇 SpellBee</h3>
+      <div class="tag"><span class="en">Weekly dictation practice, read aloud in Cantonese, Mandarin or English</span><span class="zh">默書練習 App · 粵語、普通話、英文三語朗讀</span></div>
+      <p class="en">Type in this week's words, and the app reads each one aloud. The child listens, writes in a real grid, and the app marks it on the spot. No one at home free to read the list? The app does it.</p>
+      <p class="zh"><b>屋企冇人得閒讀默書？默書皇幫你讀。</b> 家長 30 秒入好今個星期嘅詞語表，App 逐個讀出嚟，小朋友聽住寫，寫完即刻對答案，邊個字成日錯一睇就知。</p>
+      <ul>
+        <li><span class="en">Cantonese, Mandarin and English in one app: Chinese dictation, Putonghua dictation and English spelling</span><span class="zh">粵語、普通話、英文一個 App 做晒：中文默書、普通話默書、英文串字</span></li>
+        <li><span class="en">Real handwriting on a 田字格 grid with finger or stylus, undo and erase like a real exercise book</span><span class="zh">田字格真實手寫，手指或觸控筆都得，寫錯可以撤銷擦掉，同默書簿一樣</span></li>
+        <li><span class="en">Replay any word, instant marking, and a record of every practice so you can see which words keep going wrong</span><span class="zh">聽唔清撳多次，即時批改，每次成績記低，邊幾個字要再練一目了然</span></li>
+        <li><span class="en">Free to use. One-off Pro upgrade, no subscription, no accounts, no child data collected</span><span class="zh">免費使用，Pro 版一次買斷唔係月費，唔使開戶口，唔收集小朋友資料</span></li>
+      </ul>
+      <div class="btns" style="margin-top:0" id="spellbeeBtns"></div>
+    </div>
+    <div class="shots"><img src="assets/spellbee-shot1.jpg" alt=""><img src="assets/spellbee-shot2.jpg" alt=""></div>
+  </div>
+  <div class="approw" style="grid-template-columns:1fr">
+    <div class="card"><img src="assets/watson-cover.jpg" alt="" style="border-radius:6px;width:56px;height:auto"><div><h3>The Watson Watch</h3><p><span class="en">And when the paper is done: a Hong Kong mystery to read for fun. Books 1–2 out now, chapters 1–3 free below.</span><span class="zh">操完卷，就睇本為香港小朋友寫嘅英文偵探小說。第一、二集已出，頭三章免費試閱。</span></p><div class="btns" style="margin-top:12px"><a class="btn ghost" href="#watson"><span class="en">See the book</span><span class="zh">睇本書</span></a></div></div></div>
   </div>
 </div></section>
 
@@ -327,7 +347,7 @@ const CONFIG = {
   if(!CONFIG.GOOGLE_PLAY) $('#storeNote').innerHTML += '<br><span class="en">Google Play link coming shortly.</span><span class="zh">Google Play link 稍後補上。</span>';
 
   $('#exampaperBtns').innerHTML=[btn(CONFIG.EXAMPAPER_IOS,'Download on the App Store','App Store 下載','iPhone / iPad · 免費'), btn(CONFIG.EXAMPAPER_ANDROID,'Android','Android 版','coming soon · 製作中','ghost')].join('');
-  $('#spellbeeBtns').innerHTML=[btn(CONFIG.SPELLBEE_IOS,'App Store','App Store 下載','','ghost'), btn(CONFIG.SPELLBEE_ANDROID,'Android','Android 版','製作中','ghost')].join('');
+  $('#spellbeeBtns').innerHTML=[btn(CONFIG.SPELLBEE_IOS,'Download on the App Store','App Store 下載','iPhone / iPad · 免費'), btn(CONFIG.SPELLBEE_ANDROID,'Android','Android 版','coming soon · 製作中','ghost')].join('');
   $('#samplerBtn').href=CONFIG.SAMPLER_PDF; $('#samplerBtn2').href=CONFIG.SAMPLER_PDF;
   $('#waBtn').href='https://wa.me/'+CONFIG.WHATSAPP+'?text='+encodeURIComponent('你好，我想買書：\n書名／數量：\n順豐站或智能櫃地址：');
   $('#appLink').href=CONFIG.APP_PAGE; $('#mailLink').href='mailto:'+CONFIG.EMAIL; $('#mailLink').textContent=CONFIG.EMAIL;
