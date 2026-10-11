@@ -42,6 +42,7 @@ const CONFIG = {
   SAMPLER_PDF:      "sampler-the-watson-watch-ch1-3.pdf",
   NOTIFY_FORM:      "",                                   // ← Google Form link（Book 2 通知 / 抽獎名單）；空 = 用 email
   EMAIL:            "ncairay@gmail.com",
+  WHATSAPP:         "85294420520",                        // 香港直購 WhatsApp（國際格式，唔要 +）
   COLORING: { book1: "https://www.amazon.com/dp/B0HDSHW45R", book2: "https://www.amazon.com/dp/B0HFDSSNSN", book3: "https://www.amazon.com/dp/B0HFWFBH8Y" },          // ← 填色簿上架後貼 Amazon link
   APP_PAGE:         "https://ncairay.github.io/spellbee/",
   EXAMPAPER_IOS:    "https://apps.apple.com/hk/app/id6807743684",   // 出卷皇 App Store
@@ -258,6 +259,21 @@ const CONFIG = {
   <p class="fine" style="margin-top:18px"><span class="en">Every book links to our free spelling app, </span><span class="zh">每本書都連住我哋嘅免費默書 app </span><a id="appLink" href="#">默書皇 SpellBee</a>.</p>
 </div></section>
 
+<section class="band" id="hkorder"><div class="wrap">
+  <div>
+    <h2 class="t"><span class="en">In Hong Kong? Order a signed copy by WhatsApp.</span><span class="zh">香港直購：WhatsApp 落單，順豐到付</span></h2>
+    <p class="sub"><span class="en">A few author copies are in Hong Kong. No Amazon shipping wait, and every book comes signed.</span><span class="zh">作者手上有少量實體書，唔使等 Amazon 運，每本簽名。</span></p>
+    <p>
+      <span class="en"><b>Coloring book</b> (any of Books 1–3) HK$68 each · <b>3 for HK$180</b>, SF Express pickup point included<br><b>The Watson Watch</b> Book 1 or Book 2 paperback HK$98</span>
+      <span class="zh"><b>粵語填色字簿</b>（第 1 至 3 冊任揀）每本 HK$68 · <b>三本 HK$180</b>，包順豐站自取<br><b>The Watson Watch</b> 第一或第二集平裝 HK$98</span>
+    </p>
+    <p><span class="en">How it works: WhatsApp us the titles and your SF pickup point. Pay by FPS or PayMe. We post the next working day; shipping is paid on collection (about HK$20–30), free on the 3-book set.</span><span class="zh">點買：WhatsApp 話我知要邊幾本同順豐站／智能櫃地址，FPS 或 PayMe 過數，下一個工作天寄出，運費到付（約 HK$20 至 30），三本裝包運。</span></p>
+    <div class="btns"><a class="btn" id="waBtn" href="#" target="_blank" rel="noopener"><span class="en">WhatsApp 9442 0520</span><span class="zh">WhatsApp 9442 0520 落單</span></a></div>
+    <p class="fine"><span class="en">Outside Hong Kong, the Amazon links above are the quickest route.</span><span class="zh">香港以外請用上面嘅 Amazon link。</span></p>
+  </div>
+  <img src="assets/hk-books.jpg" alt="Author copies of The Watson Watch and My First Cantonese Words in Hong Kong">
+</div></section>
+
 <section id="notify"><div class="wrap">
   <div class="notify">
     <div>
@@ -313,6 +329,7 @@ const CONFIG = {
   $('#exampaperBtns').innerHTML=[btn(CONFIG.EXAMPAPER_IOS,'Download on the App Store','App Store 下載','iPhone / iPad · 免費'), btn(CONFIG.EXAMPAPER_ANDROID,'Android','Android 版','coming soon · 製作中','ghost')].join('');
   $('#spellbeeBtns').innerHTML=[btn(CONFIG.SPELLBEE_IOS,'App Store','App Store 下載','','ghost'), btn(CONFIG.SPELLBEE_ANDROID,'Android','Android 版','製作中','ghost')].join('');
   $('#samplerBtn').href=CONFIG.SAMPLER_PDF; $('#samplerBtn2').href=CONFIG.SAMPLER_PDF;
+  $('#waBtn').href='https://wa.me/'+CONFIG.WHATSAPP+'?text='+encodeURIComponent('你好，我想買書：\n書名／數量：\n順豐站或智能櫃地址：');
   $('#appLink').href=CONFIG.APP_PAGE; $('#mailLink').href='mailto:'+CONFIG.EMAIL; $('#mailLink').textContent=CONFIG.EMAIL;
   $('#book2Btns').innerHTML=[btn(CONFIG.BOOK2_PAPERBACK,'Book 2 paperback on Amazon','第二集 Amazon 平裝','US$9.99 · 152 pages'), btn(CONFIG.BOOK2_KINDLE,'Book 2 on Kindle','第二集 Kindle','US$4.99 · free on Kindle Unlimited','ghost')].join('');
   $('#notifyBtn').href = CONFIG.NOTIFY_FORM || ('mailto:'+CONFIG.EMAIL+'?subject='+encodeURIComponent('Tell me when The Watson Watch Book 3 is out'));
